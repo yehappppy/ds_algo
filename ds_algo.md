@@ -4,8 +4,12 @@
 
 # Data Structure
 
+---
+
 ## 0. Time and Space Complexity
 ![DSC](./images/DSC.png "DSC")
+
+---
 
 ## 1. Array
 An array is a data structure that stores a collection of elements, <u><strong>typically of the same type, arranged in contiguous memory locations, even for dynamic array.</strong></u> Each element in an array is <u><strong>accessed by its index</strong></u>, which represents its position in the array. Arrays are commonly used to store data such as numbers, characters, or other values <u><strong>in a sequential manner.</strong></u>
@@ -365,6 +369,8 @@ class DynamicArray(object):
                 return i
         return -1
 ```
+
+---
 
 ## 2. Linked List
 
@@ -1061,6 +1067,8 @@ pass
 pass
 ```
 
+---
+
 ## 3. Stack
 
 Stack is a data structure that operates on a <u><strong>last-in, first-out (LIFO)</strong></u> principle. It is a collection of elements with two primary operations: push and pop.
@@ -1228,6 +1236,8 @@ class StackUsingList(object):
 
 **Remark:** While implementing a stack with a linked list, since accessing in a linked list is $O(n)$ due to linear search, we use the head node as the stack peek to avoid traversing the list during popping and pushing.
 
+---
+
 ## 4. Queue
 
 ### Implement Queue with Array
@@ -1313,6 +1323,8 @@ pass
 ```python
 pass
 ```
+
+---
 
 ## 5. Tree
 
@@ -3676,16 +3688,21 @@ class PriorityQueue:
         return self.queue.heap
 ```
 
+---
+
 ## 6. Graph
 
 ### 6.1 Graph Representation
 
+---
 
 ## 7. Hash Table
 
-
+---
 
 # Algorithm
+
+---
 
 ## 1. Binary Search
 - **Requirement**: sorted array, typically non-descending
@@ -3833,13 +3850,21 @@ def rightInsertion(nums: list[int], val: int) -> int:
 ```
 **Remark:** If $l \neq 0$, then $nums[i] \leq val$ for all $i = 0, \ldots, l-1$ and $nums[i] > val$ for all $i = l, \ldots, \text{len}(nums)-1$ (if $l \neq \text{len}(nums)$). Then $l$ must be the rightmost index to insert val.
 
+---
+
 ## 2. Sorting
+
+---
 
 ### 2.0 Time and Space Complexity
 
 ![Sorting](./images/ASC.png "Sorting")
 
-### 2.1 Selection Sort
+---
+
+### 2.1 Comparison Sort
+
+#### 2.1.1 Selection Sort
 - **Time complexity**: $O(n^2)$
 - **Space complexity**: $O(1)$
 ```python
@@ -3853,7 +3878,7 @@ def SelectionSort(nums):
     return nums
 ```
 
-### 2.2 Insertion Sort
+#### 2.1.2 Insertion Sort
 - **Time complexity**: $O(n^2)$
 - **Space complexity**: $O(1)$
 - **Best case**: $O(n)$, the array is already sorted
@@ -3867,7 +3892,7 @@ def InsertionSort(nums):
     return nums
 ```
 
-### 2.3 Bubble Sort
+#### 2.1.3 Bubble Sort
 - **Time complexity**: $O(n^2)$
 - **Space complexity**: $O(1)$
 - **Best case**: $O(n)$, the array is already sorted
@@ -3884,7 +3909,7 @@ def BubbleSort(nums):
     return nums
 ```
 
-### 2.4 BST Sort (Tree Sort)
+#### 2.1.4 BST Sort (Tree Sort)
 - **Time complexity**: $O(n \log n)$, build the BST requires $O(n \log n)$, in-order traversal requires $O(n)$
 - **Space complexity**: $O(n)$
 - **Worst case**: $O(n^2)$ due to bad tree balancing (building the BST requires $O(n^2)$)
@@ -3899,7 +3924,7 @@ def BSTSort(nums):
 
 **Detail implementation: [BST](#52-binary-search-tree-bst)**
 
-### 2.5 AVL Tree Sort
+#### 2.1.5 AVL Tree Sort
 - **Time complexity**: $O(n \log n)$, building the AVL (inserting $n$ items) requires $O(n \log n)$, in-order traversal requires $O(n)$
 - **Space complexity**: $O(n)$
 
@@ -3912,7 +3937,7 @@ def AVLSort(nums):
 ```
 **Detail implementation: [AVL Tree](#531-avl-tree)**
 
-### 2.6 Red Black Tree Sort
+#### 2.1.6 Red Black Tree Sort
 - **Time complexity**: $O(n \log n)$, building the Red Black Tree (inserting $n$ items) requires $O(n \log n)$, in-order traversal requires $O(n)$
 - **Space complexity**: $O(n)$
 
@@ -3925,7 +3950,7 @@ def RBTSort(nums):
 ```
 **Detail implementation: [Red Black Tree](#533-red-black-tree)**
 
-### 2.7 Heap Sort
+#### 2.1.7 Heap Sort
 - **Time complexity**: $O(n \log n)$
 - **Space complexity**: $O(1)$
 - **Remark**: natural for array, clumsy for linked-list
@@ -3937,7 +3962,7 @@ def HeapSort(nums):
 ```
 **Detail implementation: [Heap](#54-heap)**
 
-### 2.8 Merge Sort
+#### 2.1.8 Merge Sort
 - **Time complexity**: $O(n \log n)$
 - **Space complexity**: $O(n)$
 - **Remark**: recursive divide-and-conquer algorithm, in-place for linked-list, not in-place for array
@@ -3966,7 +3991,7 @@ def MergeSort(nums):
     return _merge(left, right)
 ```
 
-### 2.9 Quick Sort
+#### 2.1.9 Quick Sort
 - **Time complexity**: $O(n \log n)$
 - **Space complexity**: $O(1)$
 - **Worst case**: $O(n^2)$ due to bad pivot choice, can be fixed by median-of-three strategy
@@ -4018,7 +4043,7 @@ def QuickSort(nums):
     return nums
 ```
 
-### 2.10 Quick Select
+#### 2.1.10 Quick Select
 - **Goal**: What if we only want the k-th smallest item?
 - **Time complexity**: $O(n)$
 - **Space complexity**: $O(1)$
@@ -4034,9 +4059,252 @@ def QuickSelect(nums, k):
         r -= 1
 ```
 
-### 2.11 Stability
+#### 2.1.11 Shell Sort
+- **Time complexity**: The time complexity of Shell Sort depends on the gap sequence used. The average case is \(O(n \log^2 n)\) with the original gap sequence, while better sequences can achieve \(O(n^{3/2})\) or even \(O(n \log n)\).
+- **Space complexity**: \(O(1)\), as it is an in-place sorting algorithm.
+- **Worst case**: \(O(n^2)\), which occurs with poor gap sequences.
+- **Remark**: Shell Sort is an optimization of insertion sort that allows the exchange of items that are far apart. The idea is to arrange the list of elements so that, starting anywhere, taking every \(h^{th}\) element produces a sorted list. By using a gap to allow distant elements to be sorted, Shell Sort quickly positions elements closer to their final locations. This local sorting minimizes the number of shifts required during the final insertion sort phase, leading to improved efficienc
+
+- **Explanation**: 
+  - **Gap Sequence**: The algorithm starts by sorting elements far apart from each other and progressively reducing the gap between elements to be compared. This allows for the movement of elements into their correct position more quickly than a simple insertion sort. Using Sedgewick's sequence \( (1, 4, 13, 40, 121, ...) \) which is proven to give better performance than the original Shell sequence.
+  - **Insertion Sort**: For each gap, a modified insertion sort is applied to the elements that are \(h\) positions apart.
+  - **Total Time Complexity**: 
+    \[
+    O(n \log^2 n) \text{ or } O(n^{4/3}) \text{ using Sedgewick’s sequence }
+    \]
+
+```python
+def ShellSort(arr):
+    n = len(arr)
+    gap = n // 2  # Start with a big gap, then reduce the gap
+
+    # Do a gapped insertion sort for this gap size
+    while gap > 0:
+        for i in range(gap, n):
+            temp = arr[i]
+            j = i
+            # Shift earlier gap-sorted elements up until the correct location for arr[i] is found
+            while j >= gap and arr[j - gap] > temp:
+                arr[j] = arr[j - gap]
+                j -= gap
+            arr[j] = temp
+        gap //= 2  # Reduce the gap for the next element
+    return arr
+```
+
+```python
+def ShellSort(arr):
+    n = len(arr)
+    # Sedgewick's sequence
+    gaps = [1750, 701, 301, 132, 57, 23, 10, 4, 1]  # Pre-computed for typical array sizes
+    
+    # Find the starting gap
+    gap_index = 0
+    while gap_index < len(gaps) and gaps[gap_index] > n:
+        gap_index += 1
+    
+    # Perform shell sort with decreasing gaps
+    while gap_index < len(gaps):
+        gap = gaps[gap_index]
+        for i in range(gap, n):
+            temp = arr[i]
+            j = i
+            while j >= gap and arr[j - gap] > temp:
+                arr[j] = arr[j - gap]
+                j -= gap
+            arr[j] = temp
+        gap_index += 1
+    
+    return arr
+```
+
+---
+
+### 2.2 Non-Comparison Sort
+
+#### 2.2.1 Counting Sort
+- **Time complexity**: $O(n + k)$, where \( n \) is the number of elements in the input array and \( k \) is the range of the input values.
+- **Space complexity**: $O(k)$, for the count array used to store the frequency of each unique element.
+- **Worst case**: $O(n + k)$, as the algorithm processes each element and the count array.
+- **Remark**: Counting Sort is a non-comparison sorting algorithm that is efficient for sorting integers or objects that can be mapped to integers. It is not suitable for sorting large ranges of numbers with sparse distributions.
+
+```python
+def CountingSort(arr):
+    max_val = max(arr)
+    min_val = min(arr)
+
+    range_of_elements = max_val - min_val + 1
+    count = [0] * range_of_elements
+    output = [0] * len(arr)
+
+    for number in arr:
+        count[number - min_val] += 1
+
+    # Trick: prefix sum
+    for i in range(1, len(count)):
+        count[i] += count[i - 1]
+
+    for number in reversed(arr):
+        output[count[number - min_val] - 1] = number
+        count[number - min_val] -= 1
+
+    return output
+```
+
+#### 2.2.2 Bucket Sort
+- **Time complexity**: $O(n + k)$ on average, where \( n \) is the number of elements in the input array and \( k \) is the number of buckets. The worst-case time complexity is $O(n^2)$ if all elements fall into a single bucket.
+- **Space complexity**: $O(n + k)$, for the buckets used to store the elements.
+- **Worst case**: $O(n^2)$, occurs when all elements are placed in a single bucket and a comparison sort is used to sort that bucket.
+- **Remark**: Bucket Sort is a distribution-based sorting algorithm that works well when the input is uniformly distributed over a range. It is particularly effective for floating-point numbers or when the range of input values is known and limited.
+- **Explanation**: 
+  - **Distribution of Elements**: The input array is divided into \(k\) buckets, and distributing \(n\) elements takes \(O(n)\) time.
+  - **Sorting Each Bucket**: Each bucket is sorted individually. If the average number of elements per bucket is \(n/k\) and a comparison-based sorting algorithm is used, the time complexity is \(O(n/k \log(n/k))\). If a linear-time sorting algorithm (like Insertion Sort for small buckets) is used, it can be approximated as \(O(n/k)\).
+  - **Total Time Complexity**: 
+    \[
+    O(n) + O(k \cdot (n/k)) = O(n + k)
+    \]
+
+
+```python
+def BucketSort(arr, k):
+    if not arr:
+        return arr
+
+    # Create buckets
+    max_val = max(arr)
+    min_val = min(arr)
+    bucket_range = max_val - min_val + 1
+    bucket_count = k  # Number of buckets
+    buckets = [[] for _ in range(bucket_count)]
+
+    # Distribute input array values into buckets
+    for number in arr:
+        index = (number - min_val) * (bucket_count - 1) // bucket_range
+        buckets[index].append(number)
+
+    # Sort each bucket and concatenate the results
+    output = []
+    for bucket in buckets:
+        output.extend(sorted(bucket))  # You can use any sorting algorithm here
+
+    return output
+```
+
+#### 2.2.3 Radix Sort
+- **Time complexity**: \(O(n \cdot d)\), where \(n\) is the number of elements in the input array and \(d\) is the number of digits in the largest number. The time complexity can also be expressed as \(O((n + k) \cdot d)\) when using Counting Sort as a subroutine, where \(k\) is the range of the digit values (0-9).
+- **Space complexity**: \(O(n + k)\), for the output array and the count array used in Counting Sort.
+- **Worst case**: \(O(n \cdot d)\), which occurs when the number of digits \(d\) is large.
+- **Remark**: Radix Sort is a non-comparison sorting algorithm that sorts numbers by processing individual digits. It is particularly effective for sorting integers or strings of fixed length.
+
+- **Explanation**: 
+  - **Distribution of Digits**: Radix Sort processes each digit of the numbers from the least significant digit to the most significant digit. This requires multiple passes over the data, with each pass taking \(O(n)\) time.
+  - **Sorting Each Digit**: Counting Sort is used as a subroutine to sort the numbers based on each digit. The time complexity for sorting each digit is \(O(n + k)\), where \(k\) is the range of digit values.
+  - **Total Time Complexity**: 
+    \[
+    O(n \cdot d) \text{ or } O((n + k) \cdot d)
+    \]
+
+```python
+def RadixSort(arr):
+    # Get the maximum number to know the number of digits
+    max_val = max(arr)
+    
+    # Apply counting sort to sort elements based on place value
+    exp = 1  # Exponent representing the current digit place
+    while max_val // exp > 0:
+        CountingSortByDigit(arr, exp)
+        exp *= 10
+    return arr
+
+def CountingSortByDigit(arr, exp):
+    n = len(arr)
+    output = [0] * n  # Output array
+    count = [0] * 10   # Count array for digits 0-9
+
+    # Count occurrences of each digit
+    for i in range(n):
+        index = (arr[i] // exp) % 10
+        count[index] += 1
+
+    # Change count[i] so that it contains the actual position of this digit in output[]
+    for i in range(1, 10):
+        count[i] += count[i - 1]
+
+    # Build the output array
+    for i in range(n - 1, -1, -1):
+        index = (arr[i] // exp) % 10
+        output[count[index] - 1] = arr[i]
+        count[index] -= 1
+
+    # Copy the output array to arr[], so that arr[] now contains sorted numbers
+    for i in range(n):
+        arr[i] = output[i]
+```
+
+---
+
+### 2.3 Limits of Average Time Complexity for Sorting Algorithms
+
+1. **Comparison-Based Sorting**:
+   - For comparison-based sorting algorithms (like Quick Sort, Merge Sort, and Heap Sort), the average time complexity is \(O(n \log n)\). This is due to the lower bound established by the decision tree model, which states that any comparison-based sorting algorithm must make at least \(O(n \log n)\) comparisons in the average case.
+
+2. **Non-Comparison-Based Sorting**:
+   - Non-comparison-based sorting algorithms (like Counting Sort, Radix Sort, and Bucket Sort) can achieve better average time complexities, such as \(O(n)\), under certain conditions. These algorithms leverage specific properties of the input data (e.g., integer values within a known range) to sort without direct comparisons.
+
+3. **Best Possible Average Case**:
+   - The best possible average time complexity for any sorting algorithm, considering all types, is \(O(n)\) for specific cases where the input data meets the criteria for non-comparison-based sorting.
+
+4. **Summary**:
+   - In summary, the average time complexity limit for comparison-based sorting algorithms is \(O(n \log n)\), while non-comparison-based algorithms can achieve \(O(n)\) under suitable conditions. Thus, the choice of sorting algorithm often depends on the characteristics of the data being sorted.
+
+---
+
+**Proof of Lower Bound for Comparison-Based Sorting Algorithms**
+
+1. **Problem Statement**  
+   We aim to prove that the average time complexity of any comparison-based sorting algorithm has a lower bound of \(O(n \log n)\).
+
+2. **Decision Tree Model Analysis**  
+   - **Decision Tree Structure**: Each internal node represents a comparison \((a_i : a_j)\). Each leaf node represents a possible permutation. Each path from root to leaf represents a complete sorting sequence. The height of the tree represents the worst-case number of comparisons.
+   - **Key Properties**:
+     1. For \(n\) elements, there are exactly \(n!\) possible permutations.
+     2. Each permutation must correspond to a unique leaf node.
+     3. For a binary decision tree with height \(h\): \(2^h \geq n!\) (number of leaves ≥ number of permutations).
+
+![Decision Tree for Comparison Sorting](./images/CompSortDT.png)
+
+3. **Mathematical Derivation**  
+   - **Claim**: The depth of a decision tree for a given value of \( n \) is \( O(log(n)) \).
+        \[
+        \text{There are } n! \text{ leaf nodes since each leaf node represents 1 permutation.} \\ 
+        \text{A binary tree with height } h \text{ has at most } 2^h \text{ leaf nodes.} \\ 
+        \begin{align*}
+        2^h & \geq n! \\ 
+        h   & \geq \log_2{n!} = \log_2{(1 \cdot 2 \cdot \ldots \cdot n)} \\ 
+            & = \log_2{1} + \log_2{2} + \ldots + \log_2{n} \\ 
+            & > \left(\frac{n}{2}\right) \log_2{\left(\frac{n}{2}\right)} \\ 
+        h   & \in O(n \log{n}) 
+        \end{align*}
+        \]
+        
+4. **Time Complexity Analysis**  
+    - **Best Time Complexity**: \( O(n) \) applies to algorithms like Insertion Sort when the input data is already sorted or nearly sorted. In this scenario, the algorithm requires only a single pass through the data, resulting in linear time complexity.
+    
+    - **Average Time Complexity**: The average time complexity for general comparison-based sorting algorithms is \( O(n \log n) \). This is based on the lower bound established by the decision tree model, which indicates that any comparison-based sorting algorithm must make at least \( O(n \log n) \) comparisons on average.
+
+    - **Worst Time Complexity**: For algorithms such as Bubble Sort and Insertion Sort, the worst-case time complexity is \( O(n^2) \), occurring when the input data is in reverse order. In this case, the maximum number of comparisons is \( \binom{n}{2} \), reflecting the maximum path length in a decision tree.
+
+    - **Special Cases**: 
+        - Merge Sort and Heap Sort maintain a worst-case time complexity of \( O(n \log n) \) due to their divide-and-conquer strategies, even in the most unfavorable scenarios.
+        - Quick Sort typically has an average-case time complexity of \( O(n \log n) \), but it can degrade to \( O(n^2) \) in the worst case if the pivot selection is poor, such as consistently choosing the smallest or largest element as the pivot.
+
+---
+
+### 2.4 Stability
 - **Stable**: insertion, selection, merge sort, bucket sort
 - **Unstable**: quick sort, heap sort
+
+---
 
 ## 3. Two Pointers
 - **Abstract**: Useful trick to deal with array and linked list
@@ -4453,6 +4721,8 @@ def lengthOfLongestSubstring(s: str) -> int:
     return res
 ```
 
+---
+
 ## 4. Prefix Sum
 - **Abstract**: Useful trick to deal with range sum problems in an immutable array.
 - **Time Complexity**: $O(1)$
@@ -4521,7 +4791,11 @@ def max_length_equal_AB_substring(s: str) -> int:
 ```
 **Remark**: This is an interview problem. By recording the first index that has a difference of 'A' and 'B' not in last_seen, we search for the next index that has the same difference, which means the substring from the first index + 1 to this index is a balanced substring. Keep updating the length of the balanced substring to get the answer.
 
+---
+
 ## 5. Prefix Product
+
+---
 
 ## 6. Difference Array
 - **Abstract**: The difference array borrows the idea from prefix sum and is efficient if there are frequent increments and subtractions of elements in an interval of the original array (by the same number).
@@ -4617,6 +4891,8 @@ def carPooling(trips: list[list[int]], capacity: int) -> bool:
             return False
     return True
 ```
+
+---
 
 ## 7. Bit Manipulation
 There are 6 basic <u><strong>bit operations</strong></u>: and, or, xor, not, left shift, right shift. Keep in mind the following table:
@@ -4872,6 +5148,8 @@ M + (\hat{M} - 1) = 2^N - 1 \Rightarrow (M - 1) + \hat{M} = 2^N - 1 \Rightarrow 
 ```
 **Remark**: Python uses 2's complement, and right shift is arithmetic. For negative x, applies the <u><strong>2's complement transition</strong></u> to get -x.
 
+---
+
 ## 8. Backtracking
 Backtracking is a general algorithmic technique used to find solutions to combinatorial problems, particularly in cases where <u><strong>exhaustive search is not feasible due to the large number of possibilities</strong></u>. It is often used in <u><strong>constraint satisfaction problems</strong></u>, such as puzzles like Sudoku, combinatorial optimization, and various decision-making problems. Backtracking is just **DFS**.
 
@@ -5046,4 +5324,6 @@ def totalNQueens(n: int) -> int:
 
 ### 8.3 Pruning -- Make It Faster
 
-## 
+---
+
+## 9. Dynamic Programming
